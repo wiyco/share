@@ -2,7 +2,6 @@
 
 import { ThemeProvider as NextThemeProvider } from "next-themes";
 
-/** @see {@link https://nextui.org/docs/guide/installation#manual-installation} */
 /** @see {@link https://github.com/pacocoursey/next-themes} */
 
 export function Providers(props: {
