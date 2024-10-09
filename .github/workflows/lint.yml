@@ -1,13 +1,5 @@
 name: Lint
 on:
-  push:
-    branches:
-      - develop
-    paths-ignore:
-      - "**/*.md"
-      - ".git*"
-      - ".vscode/**"
-
   pull_request:
     branches:
       - master
