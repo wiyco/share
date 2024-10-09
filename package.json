@@ -1,8 +1,13 @@
 {
-  "name": "next-template",
-  "description": "Boilerplate of Next.js project with Lint, TypeScript, SASS, Tailwind, NextUI, Framer Motion, React Hook Form, Zod, SWR, Vitest, Storybook and more.",
-  "version": "1.0.0",
+  "name": "share",
+  "version": "0.0.1",
   "private": true,
+  "author": {
+    "name": "wiyco",
+    "email": "me@mail.wiyco.dev",
+    "url": "https://wiyco.dev"
+  },
+  "license": "AGPL-3.0-only",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
