@@ -29,6 +29,7 @@
     "@hookform/resolvers": "^3",
     "clsx": "^2",
     "framer-motion": "^11",
+    "jotai": "^2",
     "next": "^14",
     "next-themes": "^0",
     "react": "^18",
