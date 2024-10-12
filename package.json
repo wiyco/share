@@ -26,6 +26,7 @@
     "story:build": "storybook build"
   },
   "dependencies": {
+    "@headlessui/react": "^2",
     "@heroicons/react": "^2",
     "@hookform/resolvers": "^3",
     "clsx": "^2",
