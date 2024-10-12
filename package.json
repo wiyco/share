@@ -26,6 +26,7 @@
     "story:build": "storybook build"
   },
   "dependencies": {
+    "@heroicons/react": "^2",
     "@hookform/resolvers": "^3",
     "clsx": "^2",
     "framer-motion": "^11",
