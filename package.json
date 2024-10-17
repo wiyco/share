@@ -26,9 +26,12 @@
     "story:build": "storybook build"
   },
   "dependencies": {
+    "@headlessui/react": "^2",
+    "@heroicons/react": "^2",
     "@hookform/resolvers": "^3",
     "clsx": "^2",
     "framer-motion": "^11",
+    "jotai": "^2",
     "next": "^14",
     "next-themes": "^0",
     "react": "^18",
@@ -36,6 +39,7 @@
     "react-hook-form": "^7",
     "swr": "^2",
     "tailwind-merge": "^2",
+    "tailwind-variants": "^0",
     "zod": "^3"
   },
   "devDependencies": {
