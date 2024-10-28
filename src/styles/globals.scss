@@ -2,6 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-main {
-  @apply bg-neutral-300 dark:bg-neutral-800;
+body {
+  font-family: var(--font-inter), var(--font-zen-maru-gothic), sans-serif;
 }
