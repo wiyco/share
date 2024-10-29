@@ -2,20 +2,21 @@
 
 /**
  * Acknowledgments:
- * This code is derived from and inspired by Chakra UI.
- * Special thanks to the Chakra UI team for their outstanding work and open-source contributions.
+ * This code is derived from and inspired by Chakra UI and NextUI.
+ * Special thanks to the Chakra UI and NextUI team for their outstanding work and open-source contributions.
  * Their implementation patterns and design principles have significantly influenced this code.
  *
- * Original source:
- * @see {@link https://github.com/chakra-ui/chakra-ui/blob/next/packages/system/src/system.types.tsx | @chakra-ui/system/src/system.types.tsx}
+ * Original sources:
+ * @see {@link https://github.com/chakra-ui/chakra-ui/blob/next/packages/system/src/system.types.tsx | Chakra UI}
+ * @see {@link https://github.com/nextui-org/nextui/blob/canary/packages/core/system-rsc/src/types.ts | NextUI}
  *
- * Chakra UI - Copyright (c) 2019 Segun Adebayo
+ * Chakra UI | NextUI
  * @license MIT
  */
 
 import type { ValidationMap, WeakValidationMap } from "prop-types";
 
-import type { EmptyObject } from "@/core";
+import type { EmptyObject } from "../utility-types";
 
 export type As<Props = any> = React.ElementType<Props>;
 
@@ -49,19 +50,57 @@ export type MergeWithAs<
 export type ComponentWithAs<
   Component extends As,
   Props extends object = EmptyObject,
+  OmitKeys extends keyof any = never,
 > = {
   <AsComponent extends As = Component>(
     props: MergeWithAs<
       React.ComponentProps<Component>,
-      React.ComponentProps<AsComponent>,
+      Omit<React.ComponentProps<AsComponent>, OmitKeys>,
       Props,
       AsComponent
     >
-  ): JSX.Element;
-
+  ): React.ReactElement;
+  readonly $$typeof: symbol;
   displayName?: string;
   propTypes?: WeakValidationMap<any>;
   contextTypes?: ValidationMap<any>;
   defaultProps?: Partial<any>;
   id?: string;
+};
+
+export type ForwardRefComponentWithAs<
+  Component extends As,
+  Props extends object = EmptyObject,
+  OmitKeys extends keyof any = never,
+> = {
+  <AsComponent extends As = Component>(
+    props: MergeWithAs<
+      React.ComponentPropsWithoutRef<Component>,
+      Omit<React.ComponentPropsWithoutRef<AsComponent>, OmitKeys>,
+      Props,
+      AsComponent
+    >
+  ): React.ReactElement;
+  readonly $$typeof: symbol;
+  displayName?: string;
+  propTypes?: WeakValidationMap<any>;
+  contextTypes?: ValidationMap<any>;
+  defaultProps?: Partial<any>;
+  id?: string;
+};
+
+export type HTMLComponentProps<
+  T extends As = "div",
+  OmitKeys extends keyof any = never,
+> = Omit<
+  PropsOf<T>,
+  | "ref"
+  | "color"
+  | "slot"
+  | "size"
+  | "defaultChecked"
+  | "defaultValue"
+  | OmitKeys
+> & {
+  as?: As;
 };
