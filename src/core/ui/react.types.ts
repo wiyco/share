@@ -13,10 +13,9 @@
  * @license MIT
  */
 
-/**
- * An empty object type
- */
-type EmptyObject = Record<string, never>;
+import type { ValidationMap, WeakValidationMap } from "prop-types";
+
+import type { EmptyObject } from "@/core";
 
 type As<Props = any> = React.ElementType<Props>;
 
@@ -61,8 +60,8 @@ type ComponentWithAs<
   ): JSX.Element;
 
   displayName?: string;
-  propTypes?: React.WeakValidationMap<any>;
-  contextTypes?: React.ValidationMap<any>;
+  propTypes?: WeakValidationMap<any>;
+  contextTypes?: ValidationMap<any>;
   defaultProps?: Partial<any>;
   id?: string;
 };
@@ -70,7 +69,6 @@ type ComponentWithAs<
 export type {
   As,
   ComponentWithAs,
-  EmptyObject,
   MergeWithAs,
   OmitCommonProps,
   PropsOf,
