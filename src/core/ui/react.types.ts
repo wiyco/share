@@ -17,26 +17,26 @@ import type { ValidationMap, WeakValidationMap } from "prop-types";
 
 import type { EmptyObject } from "@/core";
 
-type As<Props = any> = React.ElementType<Props>;
+export type As<Props = any> = React.ElementType<Props>;
 
 /**
  * Extract the props of a React element or component
  */
-type PropsOf<T extends As> = React.ComponentPropsWithoutRef<T> & {
+export type PropsOf<T extends As> = React.ComponentPropsWithoutRef<T> & {
   as?: As;
 };
 
-type OmitCommonProps<
+export type OmitCommonProps<
   Target,
   OmitAdditionalProps extends keyof any = never,
 > = Omit<Target, "transition" | "as" | "color" | OmitAdditionalProps>;
 
-type RightJoinProps<
+export type RightJoinProps<
   SourceProps extends object = EmptyObject,
   OverrideProps extends object = EmptyObject,
 > = OmitCommonProps<SourceProps, keyof OverrideProps> & OverrideProps;
 
-type MergeWithAs<
+export type MergeWithAs<
   ComponentProps extends object,
   AsProps extends object,
   AdditionalProps extends object = EmptyObject,
@@ -46,7 +46,7 @@ type MergeWithAs<
     as?: AsComponent;
   };
 
-type ComponentWithAs<
+export type ComponentWithAs<
   Component extends As,
   Props extends object = EmptyObject,
 > = {
@@ -64,13 +64,4 @@ type ComponentWithAs<
   contextTypes?: ValidationMap<any>;
   defaultProps?: Partial<any>;
   id?: string;
-};
-
-export type {
-  As,
-  ComponentWithAs,
-  MergeWithAs,
-  OmitCommonProps,
-  PropsOf,
-  RightJoinProps,
 };
