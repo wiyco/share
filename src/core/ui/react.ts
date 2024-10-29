@@ -22,7 +22,7 @@ import type {
   RightJoinProps,
 } from "./react.types";
 
-function forwardRef<Component extends As, Props extends object>(
+export function forwardRef<Component extends As, Props extends object>(
   component: React.ForwardRefRenderFunction<
     any,
     RightJoinProps<PropsOf<Component>, Props> & {
@@ -34,5 +34,3 @@ function forwardRef<Component extends As, Props extends object>(
     component as React.ForwardRefRenderFunction<any>
   ) as unknown as ComponentWithAs<Component, Props>;
 }
-
-export { forwardRef };
