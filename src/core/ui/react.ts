@@ -2,14 +2,15 @@
 
 /**
  * Acknowledgments:
- * This code is derived from and inspired by Chakra UI.
- * Special thanks to the Chakra UI team for their outstanding work and open-source contributions.
+ * This code is derived from and inspired by Chakra UI and NextUI.
+ * Special thanks to the Chakra UI and NextUI team for their outstanding work and open-source contributions.
  * Their implementation patterns and design principles have significantly influenced this code.
  *
- * Original source:
- * @see {@link https://github.com/chakra-ui/chakra-ui/blob/next/packages/system/src/forward-ref.tsx | @chakra-ui/system/src/forward-ref.tsx}
+ * Original sources:
+ * @see {@link https://github.com/chakra-ui/chakra-ui/blob/next/packages/system/src/forward-ref.tsx | Chakra UI}
+ * @see {@link https://github.com/nextui-org/nextui/blob/canary/packages/core/system-rsc/src/utils.ts | NextUI}
  *
- * Chakra UI - Copyright (c) 2019 Segun Adebayo
+ * Chakra UI | NextUI
  * @license MIT
  */
 
@@ -17,12 +18,16 @@ import { forwardRef as reactForwardRef } from "react";
 
 import type {
   As,
-  ComponentWithAs,
+  ForwardRefComponentWithAs,
   PropsOf,
   RightJoinProps,
 } from "./react.types";
 
-export function forwardRef<Component extends As, Props extends object>(
+export function forwardRef<
+  Component extends As,
+  Props extends object,
+  OmitKeys extends keyof any = never,
+>(
   component: React.ForwardRefRenderFunction<
     any,
     RightJoinProps<PropsOf<Component>, Props> & {
@@ -32,5 +37,5 @@ export function forwardRef<Component extends As, Props extends object>(
 ) {
   return reactForwardRef(
     component as React.ForwardRefRenderFunction<any>
-  ) as unknown as ComponentWithAs<Component, Props>;
+  ) as ForwardRefComponentWithAs<Component, Props, OmitKeys>;
 }
