@@ -4,7 +4,6 @@ import { forwardRef, type HTMLComponentProps } from "@/core";
 import { cn } from "@/utils";
 
 export interface CardTextProps extends HTMLComponentProps<"p"> {
-  as?: React.ElementType;
   lineClamp?: 1 | 2 | 3 | 4 | 5 | 6 | "none";
 }
 
