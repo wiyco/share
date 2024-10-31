@@ -22,6 +22,26 @@ const meta: Meta<Props> = {
         type: "text",
       },
     },
+    anchor: {
+      description: "Position of menu items.",
+      control: {
+        type: "select",
+      },
+      options: [
+        "top",
+        "top start",
+        "top end",
+        "bottom",
+        "bottom start",
+        "bottom end",
+        "left",
+        "left start",
+        "left end",
+        "right",
+        "right start",
+        "right end",
+      ] as Props["anchor"][],
+    },
     items: {
       description: "List of menu items.",
       control: {
