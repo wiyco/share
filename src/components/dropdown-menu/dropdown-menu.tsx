@@ -57,7 +57,7 @@ const menuButtonVariants = tv({
 });
 
 const menuItemsVariants = tv({
-  base: "min-w-48 overflow-clip rounded-xl border border-black/5 bg-white/60 p-1 text-sm/6 shadow-sm backdrop-blur-lg transition duration-100 ease-out [--anchor-gap:var(--spacing-1)] focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0",
+  base: "min-w-48 overflow-clip rounded-xl border border-black/5 bg-white/40 p-1 text-sm/6 shadow-sm backdrop-blur transition duration-100 ease-out [--anchor-gap:var(--spacing-1)] focus:outline-none data-[closed]:scale-95 data-[closed]:opacity-0",
   variants: {
     anchor: {
       top: "origin-bottom",
