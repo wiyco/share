@@ -22,6 +22,23 @@ const meta: Meta<Props> = {
         type: "text",
       },
     },
+    radius: {
+      description: "Radius of trigger dropdown menu.",
+      control: {
+        type: "select",
+      },
+      options: [
+        "none",
+        "sm",
+        "default",
+        "md",
+        "lg",
+        "xl",
+        "2xl",
+        "3xl",
+        "full",
+      ] as Props["radius"][],
+    },
     anchor: {
       description: "Position of menu items.",
       control: {
